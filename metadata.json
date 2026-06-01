@@ -1,8 +1,0 @@
-{
-  "name": "MinhaFeira",
-  "description": "Gestão inteligente de despensa, setores, orçamentos e lista de compras compartilhada em tempo real.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
