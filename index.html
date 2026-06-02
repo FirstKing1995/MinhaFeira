@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MinhaFeira — Gestão de Despensa e Orçamentos</title>
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#047857" />
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=192&h=192" />
+    <script type="module" crossorigin src="./assets/index-BT2sWrBs.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ixxxftTV.css">
+  </head>
+  <body class="bg-slate-50 font-sans antialiased">
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registrado!', reg))
+            .catch(err => console.error('Erro no registro do SW:', err));
+        });
+      }
+    </script>
+  </body>
+</html>
+
