@@ -357,10 +357,13 @@ export async function finalizePurchaseInDb(
   const batch = writeBatch(db);
 
   // 1. Process items that were bought
-  // Update inventory quantities in products subcollection
+  // Update inventory quantities in products subcollection only for catalog items that exist in our pantry
+  const productIdsSet = new Set(pantryProducts.map(p => p.id));
   items.forEach((item) => {
-    const prodRef = doc(db, `users/${pantryId}/products`, item.productId);
-    batch.update(prodRef, { currentQty: increment(item.qty) });
+    if (item.productId && item.productId !== "custom" && productIdsSet.has(item.productId)) {
+      const prodRef = doc(db, `users/${pantryId}/products`, item.productId);
+      batch.update(prodRef, { currentQty: increment(item.qty) });
+    }
   });
 
   // 2. Accumulate spending in sector budgets
